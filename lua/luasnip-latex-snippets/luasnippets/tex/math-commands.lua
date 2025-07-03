@@ -164,6 +164,27 @@ M = {
     ]],
     { i(1), i(2), i(0) }),
     { condition = tex.in_math, show_condition = tex.in_math }),
+-- OS part
+  autosnippet({ trig = '`2', name = 'sqrt', dscr = 'square root' },
+    fmta([[
+    \sqrt{<>}<>
+    ]],
+    { i(1), i(0) }),
+    { condition = tex.in_math, show_condition = tex.in_math }),
+
+  autosnippet({ trig = '__', wordTrig = false, name = 'subscript', dscr = 'susbcript' },
+    fmta([[
+    _{<>}<>
+    ]],
+    { i(1), i(0) }),
+    { condition = tex.in_math, show_condition = tex.in_math }),
+
+  autosnippet({ trig = '^^', wordTrig = false, name = 'superscript', dscr = 'superscript' },
+    fmta([[
+    ^{<>}<>
+    ]],
+    { i(1), i(0) }),
+    { condition = tex.in_math, show_condition = tex.in_math }),
 }
 
 -- Auto backslashes
@@ -307,6 +328,24 @@ local symbol_specs = {
 	dag = { context = { name = "†" }, command = [[\dagger]] },
 	["+-"] = { context = { name = "†" }, command = [[\pm]] },
 	["-+"] = { context = { name = "†" }, command = [[\mp]] },
+  -- OS part
+  ['`0'] = { context = { name = '∅'}, command =[[\emptyset]] },
+  ['`4'] = { context = { name = 'for all'}, command =[[\forall]] },
+  ['`6'] = { context = { name = '∂'}, command =[[\partial]] },
+  ['`8'] = { context = { name = '∞'}, command =[[\infty]] },
+  ['`='] = { context = { name = '≡'}, command =[[\equiv]] },
+  ['`-'] = { context = { name = 'setminus'}, command =[[\setminus]] },
+  ['`.'] = { context = { name = 'cdot .'}, command =[[\cdot]] },
+  ['`A'] = { context = { name = '∀'}, command =[[\forall]] },
+  ['`E'] = { context = { name = '∃'}, command =[[\exists]] },
+  ['`1'] = { context = { name = 'inverse'}, command =[[^{-1}]] },
+  ['`r'] = { context = { name = 'real'}, command =[[\real]] },
+  ['`t'] = { context = { name = 'transpose'}, command =[[^{\intercal}]] },
+  ['`q'] = { context = { name = 'boldface'}, command =[[\bf]] },
+  ['`e'] = { context = { name = 'mean'}, command =[[\mean]] },
+  ['`x'] = { context = { name = 'times ×'}, command =[[\times]] },
+  ['xkk'] = { context = { name = '\\bfx_k'}, command =[[\bfx_{k}]] },
+  ['zkk'] = { context = { name = '\\bfz_k'}, command = [[\bfx_{k}]] },
 }
 
 local symbol_snippets = {}
@@ -354,14 +393,14 @@ local single_command_math_specs = {
 		},
 		command = [[\overline]],
 	},
-	["__"] = {
-		context = {
-			name = "subscript",
-			dscr = "auto subscript 3",
-			wordTrig = false,
-		},
-		command = [[_]],
-	},
+	-- ["__"] = {
+	-- 	context = {
+	-- 		name = "subscript",
+	-- 		dscr = "auto subscript 3",
+	-- 		wordTrig = false,
+	-- 	},
+	-- 	command = [[_]],
+	-- },
 	td = {
 		context = {
 			name = "superscript",
