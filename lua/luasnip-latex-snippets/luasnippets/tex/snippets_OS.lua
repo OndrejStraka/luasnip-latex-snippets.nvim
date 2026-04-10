@@ -52,7 +52,7 @@ M = {
       i(1, "content"), 
       t({ "", "\\end{equation}" }),
     },
-    { condition = pipe { conds.line_begin, tex.in_text } }),
+    { condition =  tex.in_text * line_begin , show_condition = tex.in_beamer * line_begin}),
   
   autosnippet( { trig = 'bseq', name = 'Equation Environment without number', dscr = 'Create a star equation environment.' },
     { 
@@ -60,7 +60,7 @@ M = {
       i(1, "content"),
       t({ '', '\\end{equation*}' }),
     },
-    { condition = pipe { conds.line_begin, tex.in_text } }),
+    { condition =  tex.in_text * line_begin , show_condition = tex.in_beamer * line_begin}),
   
   autosnippet( { trig = 'bal', name = 'Align Environment', dscr = 'Create an align environment.' },
     {
@@ -71,7 +71,7 @@ M = {
       i(0, "content"),
       t({ '', '\\end{align}' })
     },
-    { condition = pipe { conds.line_begin, tex.in_text } }),
+    { condition =  tex.in_text * line_begin , show_condition = tex.in_beamer * line_begin}),
 
 
   autosnippet( { trig = 'bsal', name = 'Align Environment without number', dscr = 'Create a star equation environment.' },
@@ -80,7 +80,7 @@ M = {
       i(1, "content"),
       t({ '', '\\end{align*}' }),
     },
-    { condition = pipe { conds.line_begin, tex.in_text } }),
+    { condition =  tex.in_text * line_begin , show_condition = tex.in_beamer * line_begin}),
 
   autosnippet({ trig = "col2", name = "two columns", dscr = "Columns Environment" }, 
     {
